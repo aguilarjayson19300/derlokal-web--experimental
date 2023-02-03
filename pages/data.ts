@@ -196,60 +196,60 @@ export const communities = [
 ]
 
 export const candidCollection = [
-    '/candid1.png',
-    '/candid2.png',
-    '/candid3.png',
-    '/candid4.png',
-    '/candid5.png',
-    '/candid6.png'
+    'https://picsum.photos/536/354',
+    'https://picsum.photos/536/354',
+    'https://picsum.photos/536/354',
+    'https://picsum.photos/536/354',
+    'https://picsum.photos/536/354',
+    'https://picsum.photos/536/354'
 ]
 
 export const team = [
     {
         id: '1',
-        photo: '/lawrence.png',
+        photo: 'https://picsum.photos/536/354',
         name: 'Lawrence Marcelino',
         role: 'Co-founder & CTO'
     },
     {
         id: '2',
-        photo: '/carlo.png',
+        photo: 'https://picsum.photos/536/354',
         name: 'Carlo Madi',
         role: 'Front-end Engineer'
     },
     {
         id: '3',
-        photo: '/mika.png',
+        photo: 'https://picsum.photos/536/354',
         name: 'Mika Ella Jarapa',
         role: 'Front-end Engineer'
     },
     {
         id: '4',
-        photo: '/bernadeth.png',
+        photo: 'https://picsum.photos/536/354',
         name: 'Bernadeth Sistoso',
         role: 'Front-end Engineer'
     },
     {
         id: '5',
-        photo: '/edwin.png',
+        photo: 'https://picsum.photos/536/354',
         name: 'Edwin Pergis',
         role: 'Front-end Engineer'
     },
     {
         id: '6',
-        photo: '/edmon.png',
+        photo: 'https://picsum.photos/536/354',
         name: 'Edmon Estopace',
         role: 'Front-end Engineer'
     },
     {
         id: '7',
-        photo: '/carl.png',
+        photo: 'https://picsum.photos/536/354',
         name: 'Carl Howell Galero',
         role: 'Back-end Engineer'
     },
     {
         id: '8',
-        photo: '/nikolai.png',
+        photo: 'https://picsum.photos/536/354',
         name: 'Jendan Nikolai Erguiza',
         role: 'Front-end Engineer'
     },
