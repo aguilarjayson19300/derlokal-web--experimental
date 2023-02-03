@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
+import { hasCookie, setCookie } from "cookies-next";
 
 import Layout from "../components/Layout";
 import Modal from "../components/Modal";
@@ -9,17 +10,17 @@ import { candidCollection, customerPromises, team } from "./data";
 
 const About = () => {
   const [showTeam, setShowTeam] = useState(false);
-  const [isCookieConsentModalRendered, setIsCookieConsentModalRendered] =
-    useState(false);
-  const [showCookiesContentModal, setShowCookiesContentModal] = useState(false);
+  const [showCookieConsent, setShowCookieConsent] = useState(true);
 
   useEffect(() => {
-    if (!isCookieConsentModalRendered) {
-      setShowCookiesContentModal(true);
-      setIsCookieConsentModalRendered(true);
-    }
-  }, [isCookieConsentModalRendered]);
+    setShowCookieConsent(hasCookie("localConsent"));
+  }, []);
 
+  const acceptCookie = () => {
+    setShowCookieConsent(true);
+    setCookie("localConsent", "true", {});
+  };
+  
   return (
     <Layout>
       <section className="flex flex-col items-center px-6 py-16 mx-auto border-b sm:container sm:py-28 border-secondary4">
@@ -214,7 +215,7 @@ const About = () => {
         </Modal>
       )}
 
-      {showCookiesContentModal && (
+      {!showCookieConsent && (
         <CookiesConsentModal>
           <div className="flex flex-col gap-3 text-wrap">
             <h1 className="text-xl font-bold xl:text-2xl sm:text-xl">
@@ -227,7 +228,7 @@ const About = () => {
             <div className="flex justify-end">
               <button
                 className="justify-end px-8 py-3 text-white rounded-full bg-primary text-2xs"
-                onClick={() => setShowCookiesContentModal(false)}
+                onClick={() => acceptCookie()}
               >
                 Accept
               </button>
