@@ -10,11 +10,7 @@ import { candidCollection, customerPromises, team } from "./data";
 
 const About = () => {
   const [showTeam, setShowTeam] = useState(false);
-  const [showCookieConsent, setShowCookieConsent] = useState(true);
-
-  useEffect(() => {
-    setShowCookieConsent(hasCookie("localConsent"));
-  }, []);
+  const [showCookieConsent, setShowCookieConsent] = useState(hasCookie("localConsent"));
 
   const acceptCookie = () => {
     setShowCookieConsent(true);
