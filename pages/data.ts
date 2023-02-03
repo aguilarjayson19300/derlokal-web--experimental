@@ -196,53 +196,76 @@ export const communities = [
 ]
 
 export const candidCollection = [
-    'https://picsum.photos/536/354',
-    'https://picsum.photos/536/354',
-    'https://picsum.photos/536/354',
-    'https://picsum.photos/536/354',
-    'https://picsum.photos/536/354',
-    'https://picsum.photos/536/354'
+    '/candid1.png',
+    '/candid2.png',
+    '/candid3.png',
+    '/candid4.png',
+    '/candid5.png',
+    '/candid6.png'
 ]
 
 export const team = [
     {
-        photo: 'https://picsum.photos/536/354',
-        name: 'Carlo Madi',
-        role: 'Front-end Engineer'
-    },
-    {
-        photo: 'https://picsum.photos/536/354',
-        name: 'Cherry Madi',
-        role: 'Quality-Assurance Engineer'
-    },
-    {
-        photo: 'https://picsum.photos/536/354',
-        name: 'Kristina Rae Fabian',
-        role: 'Founder & Product Manager'
-    },
-    {
-        photo: 'https://picsum.photos/536/354',
+        id: '1',
+        photo: '/lawrence.png',
         name: 'Lawrence Marcelino',
         role: 'Co-founder & CTO'
     },
     {
-        photo: 'https://picsum.photos/536/354',
+        id: '2',
+        photo: '/carlo.png',
+        name: 'Carlo Madi',
+        role: 'Front-end Engineer'
+    },
+    {
+        id: '3',
+        photo: '/mika.png',
         name: 'Mika Ella Jarapa',
         role: 'Front-end Engineer'
     },
     {
-        photo: 'https://picsum.photos/536/354',
+        id: '4',
+        photo: '/bernadeth.png',
         name: 'Bernadeth Sistoso',
         role: 'Front-end Engineer'
     },
     {
-        photo: 'https://picsum.photos/536/354',
-        name: 'Rodel Gagate',
+        id: '5',
+        photo: '/edwin.png',
+        name: 'Edwin Pergis',
         role: 'Front-end Engineer'
     },
     {
-        photo: 'https://picsum.photos/536/354',
-        name: 'Joseph Getaruelas',
+        id: '6',
+        photo: '/edmon.png',
+        name: 'Edmon Estopace',
+        role: 'Front-end Engineer'
+    },
+    {
+        id: '7',
+        photo: '/carl.png',
+        name: 'Carl Howell Galero',
         role: 'Back-end Engineer'
     },
+    {
+        id: '8',
+        photo: '/nikolai.png',
+        name: 'Jendan Nikolai Erguiza',
+        role: 'Front-end Engineer'
+    },
+    // {
+    //     photo: 'https://picsum.photos/536/354',
+    //     name: 'Joseph Getaruelas',
+    //     role: 'Back-end Engineer'
+    // },
+    // {
+    //     photo: 'https://picsum.photos/536/354',
+    //     name: 'Cherry Madi',
+    //     role: 'Quality-Assurance Engineer'
+    // },
+    // {
+    //     photo: 'https://picsum.photos/536/354',
+    //     name: 'Kristina Rae Fabian',
+    //     role: 'Founder & Product Manager'
+    // },
 ]

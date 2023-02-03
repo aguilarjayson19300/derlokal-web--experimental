@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import Image from 'next/image';
 
 import Layout from '../components/Layout';
 import Modal from '../components/Modal';
@@ -9,12 +10,12 @@ const About = () => {
     const [showTeam, setShowTeam] = useState(false);
     return (
         <Layout>
-            <section className='sm:container mx-auto sm:py-28 py-16 px-6 border-b border-secondary4 flex flex-col items-center'>
-                <h1 className=' sm:text-4xl text-3xl font-bold text-center'>A platform to support our local economy.</h1>
-                <p className='text-lg text-center mt-6 sm:w-2/3'>We believe that everyone should have the opportunity to become self-employed, achieve financial success and enjoy fresh home-cooked food and products.</p>
+            <section className='flex flex-col items-center px-6 py-16 mx-auto border-b sm:container sm:py-28 border-secondary4'>
+                <h1 className='text-3xl font-bold text-center sm:text-4xl'>A platform to support our local economy.</h1>
+                <p className='mt-6 text-lg text-center sm:w-2/3'>We believe that everyone should have the opportunity to become self-employed, achieve financial success and enjoy fresh home-cooked food and products.</p>
 
-                <div className='flex sm:flex-row flex-col justify-between gap-10 pt-14'>
-                    <div className=' bg-secondary7 sm:p-14 p-8'>
+                <div className='flex flex-col justify-between gap-10 sm:flex-row pt-14'>
+                    <div className='p-8 bg-secondary7 sm:p-14'>
                         <div className='flex'>
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_6175_3918)">
@@ -29,12 +30,12 @@ const About = () => {
                                 </defs>
                             </svg>
 
-                            <h4 className='ml-6 text-xl font-bold mb-6'>Vendors</h4>
+                            <h4 className='mb-6 ml-6 text-xl font-bold'>Vendors</h4>
                         </div>
                         <p className='text-lg font-medium'>Our partners create an amazing experience that customers come back for time and time again. As a key part of platform, our sellers drive and add creativity to our platforms. We work closely with our partners to support their small business.</p>
                     </div>
 
-                    <div className=' bg-secondary7 sm:p-14 p-8'>
+                    <div className='p-8 bg-secondary7 sm:p-14'>
                         <div className='flex'>
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_6175_3925)">
@@ -51,33 +52,40 @@ const About = () => {
                                 </defs>
                             </svg>
 
-                            <h4 className='ml-6 text-xl font-bold mb-6'>Consumers</h4>
+                            <h4 className='mb-6 ml-6 text-xl font-bold'>Consumers</h4>
                         </div>
                         <p>Our next generation of e-commerce, delivering small quantities of goods to customers’ doors almost instantly. As speed and convenience becomes ever more important to customers, Der Lokal is pioneering fresh home-cooked delivery.</p>
                     </div>
                 </div>
             </section>
 
-            <section className='sm:container mx-auto sm:py-28 py-16 px-6 border-b border-secondary4 flex flex-col items-center'>
-                <h1 className=' sm:text-4xl text-3xl font-bold text-center'>We aim higher</h1>
-                <p className='text-lg text-center mt-6 sm:w-2/3'>We’re a team of designers, and engineers, but share one mission. Our strong values connect and drive us forward every day to deliver great solutions and amazing experience to our sellers and consumers.</p>
-                <button className='bg-white border text-primary  border-primary rounded-full px-8 py-3 mt-8' onClick={() => setShowTeam(true)}>Meet the team</button>
-                <div className='w-full grid lg:grid-cols-3 grid-cols-2 justify-items-center sm:mt-16 mt-12 gap-10'>
-                    {candidCollection.map(candid => (
-                        <img src={candid} alt='me' className='object-cover rounded-lg sm:mb-6 mb-4' />
+            <section className='flex flex-col items-center px-6 py-16 mx-auto border-b sm:container sm:py-28 border-secondary4'>
+                <h1 className='text-3xl font-bold text-center sm:text-4xl'>We aim higher</h1>
+                <p className='mt-6 text-lg text-center sm:w-2/3'>We’re a team of designers, and engineers, but share one mission. Our strong values connect and drive us forward every day to deliver great solutions and amazing experience to our sellers and consumers.</p>
+                <button className='px-8 py-3 mt-8 bg-white border rounded-full text-primary border-primary' onClick={() => setShowTeam(true)}>Meet the team</button>
+                <div className='grid w-full grid-cols-2 gap-10 mt-12 lg:grid-cols-3 justify-items-center sm:mt-16'>
+                    {candidCollection.map((candid, i) => (
+                        <Image
+                        key={i} 
+                        src={candid}
+                        width="500"
+                        height="360" 
+                        alt='me' 
+                        className='object-cover mb-4 rounded-lg sm:mb-6 w-' 
+                        />
                     ))}
                 </div>
             </section>
 
-            <section className='sm:container mx-auto sm:py-28 py-16 px-6 flex flex-col items-center'>
-                <h1 className='sm:text-4xl text-2xl font-bold text-center'>Our commitment to you</h1>
+            <section className='flex flex-col items-center px-6 py-16 mx-auto sm:container sm:py-28'>
+                <h1 className='text-2xl font-bold text-center sm:text-4xl'>Our commitment to you</h1>
 
-                <div className='flex sm:flex-row flex-col justify-between gap-20'>
+                <div className='flex flex-col justify-between gap-20 sm:flex-row'>
                     {
                         customerPromises.map(promise => (
-                            <div key={promise.title} className='flex flex-col justify-center items-center mt-14'>
+                            <div key={promise.title} className='flex flex-col items-center justify-center mt-14'>
                                 <div dangerouslySetInnerHTML={{ __html: promise.icon }}></div>
-                                <div className="text-xl font-bold text-textIcon mt-2 mb-4">{promise.title}</div>
+                                <div className="mt-2 mb-4 text-xl font-bold text-textIcon">{promise.title}</div>
                                 <ReactMarkdown className="text-textIcon">{promise.content}</ReactMarkdown>
                             </div>
                         ))
@@ -85,24 +93,30 @@ const About = () => {
                 </div>
             </section>
 
-            <section className='sm:py-28 py-16 px-6 flex flex-col items-center bg-primary'>
-                <h1 className='text-white sm:text-3xl text-2xl font-bold text-center'>Sign up for free with Der Lokal in seconds.</h1>
-                <p className='text-white text-lg text-center mt-6 sm:w-2/3'>Join us empower and support local communities</p>
+            <section className='flex flex-col items-center px-6 py-16 sm:py-28 bg-primary'>
+                <h1 className='text-2xl font-bold text-center text-white sm:text-3xl'>Sign up for free with Der Lokal in seconds.</h1>
+                <p className='mt-6 text-lg text-center text-white sm:w-2/3'>Join us empower and support local communities</p>
 
-                <div className='w-full flex gap-2 sm:flex-row flex-col mt-8 justify-center'>
-                    <button className='bg-white text-primary rounded-full px-8 py-3'>I'm a Vendor</button>
-                    <button className='bg-white text-primary rounded-full px-8 py-3'>I'm a Customer</button>
+                <div className='flex flex-col justify-center w-full gap-2 mt-8 sm:flex-row'>
+                    <button className='px-8 py-3 bg-white rounded-full text-primary'>I'm a Vendor</button>
+                    <button className='px-8 py-3 bg-white rounded-full text-primary'>I'm a Customer</button>
                 </div>
             </section>
 
             {showTeam && <Modal onClose={() => setShowTeam(false)}>
-                <div className='flex flex-col w-full justify-center items-center sm:px-32 px-6'>
+                <div className='flex flex-col items-center justify-center w-full px-6 sm:px-32'>
                     <h2 className='text-2xl font-bold'>Our passionate & dedicated team</h2>
 
-                    <div className='w-full grid lg:grid-cols-3 grid-cols-2 justify-items-center sm:mt-16 mt-12 gap-8'>
+                    <div className='grid w-full grid-cols-2 gap-8 mt-12 lg:grid-cols-3 justify-items-center sm:mt-12'>
                         {team.map(member => (
-                            <div>
-                                <img src={member.photo} alt='me' className='object-cover rounded-lg mb-4' />
+                            <div key={member.id}>
+                                    <Image 
+                                    src={member.photo}
+                                    width="300"
+                                    height="400" 
+                                    alt='me' 
+                                    className='object-cover mb-4 rounded-lg' 
+                                    />
                                 <div className='text-base font-bold'>{member.name}</div>
                                 <div className='text-xs'>{member.role}</div>
                             </div>
