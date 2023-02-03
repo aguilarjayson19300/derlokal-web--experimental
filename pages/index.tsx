@@ -123,73 +123,6 @@ const About = () => {
         </div>
       </section>
 
-      <section className="flex flex-col items-center px-6 py-16 mx-auto border-b sm:container sm:py-28 border-secondary4">
-        <h1 className="text-3xl font-bold text-center sm:text-4xl">
-          We aim higher
-        </h1>
-        <p className="mt-6 text-lg text-center sm:w-2/3">
-          We’re a team of designers, and engineers, but share one mission. Our
-          strong values connect and drive us forward every day to deliver great
-          solutions and amazing experience to our sellers and consumers.
-        </p>
-        <button
-          className="px-8 py-3 mt-8 bg-white border rounded-full text-primary border-primary"
-          onClick={() => setShowTeam(true)}
-        >
-          Meet the team
-        </button>
-        <div className="grid w-full grid-cols-2 gap-10 mt-12 lg:grid-cols-3 justify-items-center sm:mt-16">
-          {candidCollection.map((candid) => (
-            <img
-              src={candid}
-              alt="me"
-              className="object-cover mb-4 rounded-lg sm:mb-6"
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="flex flex-col items-center px-6 py-16 mx-auto sm:container sm:py-28">
-        <h1 className="text-2xl font-bold text-center sm:text-4xl">
-          Our commitment to you
-        </h1>
-
-        <div className="flex flex-col justify-between gap-20 sm:flex-row">
-          {customerPromises.map((promise) => (
-            <div
-              key={promise.title}
-              className="flex flex-col items-center justify-center mt-14"
-            >
-              <div dangerouslySetInnerHTML={{ __html: promise.icon }}></div>
-              <div className="mt-2 mb-4 text-xl font-bold text-textIcon">
-                {promise.title}
-              </div>
-              <ReactMarkdown className="text-textIcon">
-                {promise.content}
-              </ReactMarkdown>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="flex flex-col items-center px-6 py-16 sm:py-28 bg-primary">
-        <h1 className="text-2xl font-bold text-center text-white sm:text-3xl">
-          Sign up for free with Der Lokal in seconds.
-        </h1>
-        <p className="mt-6 text-lg text-center text-white sm:w-2/3">
-          Join us empower and support local communities
-        </p>
-
-        <div className="flex flex-col justify-center w-full gap-2 mt-8 sm:flex-row">
-          <button className="px-8 py-3 bg-white rounded-full text-primary">
-            I'm a Vendor
-          </button>
-          <button className="px-8 py-3 bg-white rounded-full text-primary">
-            I'm a Customer
-          </button>
-        </div>
-      </section>
-
       {showTeam && (
         <Modal onClose={() => setShowTeam(false)}>
           <div className="flex flex-col items-center justify-center w-full px-6 sm:px-32">
@@ -231,11 +164,17 @@ const About = () => {
         </button>
         <div className="grid w-full grid-cols-2 gap-10 mt-12 lg:grid-cols-3 justify-items-center sm:mt-16">
           {candidCollection.map((candid, i) => (
-            <Image
+            // <Image
+            //   key={i}
+            //   src={candid}
+            //   width="500"
+            //   height="360"
+            //   alt="me"
+            //   className="object-cover mb-4 rounded-lg sm:mb-6 w-"
+            // />
+            <img
               key={i}
               src={candid}
-              width="500"
-              height="360"
               alt="me"
               className="object-cover mb-4 rounded-lg sm:mb-6 w-"
             />
@@ -294,10 +233,15 @@ const About = () => {
             <div className="grid w-full grid-cols-2 gap-8 mt-12 lg:grid-cols-3 justify-items-center sm:mt-12">
               {team.map((member) => (
                 <div key={member.id}>
-                  <Image
+                  {/* <Image
                     src={member.photo}
                     width="300"
                     height="400"
+                    alt="me"
+                    className="object-cover mb-4 rounded-lg"
+                  /> */}
+                  <img
+                    src={member.photo}
                     alt="me"
                     className="object-cover mb-4 rounded-lg"
                   />
