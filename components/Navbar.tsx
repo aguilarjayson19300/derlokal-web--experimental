@@ -12,7 +12,7 @@ interface NavBarProps {
 }
 
 const emailValidationSchema = yup.object().shape({
-  email: yup.string().email().required()
+  email: yup.string().email('Email must be a valid email').required('Email is required')
 });
 
 const NavBar = ({ logo }: NavBarProps) => {
@@ -48,6 +48,10 @@ const NavBar = ({ logo }: NavBarProps) => {
       console.log(values);
     }
   });
+
+  useEffect(() => {
+    formik.setTouched({ email: true });
+  }, []);
 
   return (
     <>
@@ -269,7 +273,7 @@ const NavBar = ({ logo }: NavBarProps) => {
           onClose={() => setGetTheApp(false)}
         >
           <div className="flex flex-col items-center justify-center w-full gap-2 px-6 text-center sm:px-10">
-            <h1 className="w-full text-3xl font-bold xl:text-4xl sm:text-2xl">
+            <h1 className="w-full font-bold lg:text-3xl 2xl:text-4xl sm:text-2xl">
               Get Started with Der Lokal
             </h1>
             <form onSubmit={formik.handleSubmit}>
