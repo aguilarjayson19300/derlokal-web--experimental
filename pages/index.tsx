@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import Image from "next/image";
 import Link from "next/link";
 import { hasCookie, setCookie } from "cookies-next";
 
@@ -164,14 +163,6 @@ const About = () => {
         </button>
         <div className="grid w-full grid-cols-2 gap-10 mt-12 lg:grid-cols-3 justify-items-center sm:mt-16">
           {candidCollection.map((candid, i) => (
-            // <Image
-            //   key={i}
-            //   src={candid}
-            //   width="500"
-            //   height="360"
-            //   alt="me"
-            //   className="object-cover mb-4 rounded-lg sm:mb-6 w-"
-            // />
             <img
               key={i}
               src={candid}
@@ -233,13 +224,6 @@ const About = () => {
             <div className="grid w-full grid-cols-2 gap-8 mt-12 lg:grid-cols-3 justify-items-center sm:mt-12">
               {team.map((member) => (
                 <div key={member.id}>
-                  {/* <Image
-                    src={member.photo}
-                    width="300"
-                    height="400"
-                    alt="me"
-                    className="object-cover mb-4 rounded-lg"
-                  /> */}
                   <img
                     src={member.photo}
                     alt="me"
