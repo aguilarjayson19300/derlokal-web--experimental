@@ -206,43 +206,66 @@ export const candidCollection = [
 
 export const team = [
     {
-        photo: 'https://picsum.photos/536/354',
-        name: 'Carlo Madi',
-        role: 'Front-end Engineer'
-    },
-    {
-        photo: 'https://picsum.photos/536/354',
-        name: 'Cherry Madi',
-        role: 'Quality-Assurance Engineer'
-    },
-    {
-        photo: 'https://picsum.photos/536/354',
-        name: 'Kristina Rae Fabian',
-        role: 'Founder & Product Manager'
-    },
-    {
+        id: '1',
         photo: 'https://picsum.photos/536/354',
         name: 'Lawrence Marcelino',
         role: 'Co-founder & CTO'
     },
     {
+        id: '2',
+        photo: 'https://picsum.photos/536/354',
+        name: 'Carlo Madi',
+        role: 'Front-end Engineer'
+    },
+    {
+        id: '3',
         photo: 'https://picsum.photos/536/354',
         name: 'Mika Ella Jarapa',
         role: 'Front-end Engineer'
     },
     {
+        id: '4',
         photo: 'https://picsum.photos/536/354',
         name: 'Bernadeth Sistoso',
         role: 'Front-end Engineer'
     },
     {
+        id: '5',
         photo: 'https://picsum.photos/536/354',
-        name: 'Rodel Gagate',
+        name: 'Edwin Pergis',
         role: 'Front-end Engineer'
     },
     {
+        id: '6',
         photo: 'https://picsum.photos/536/354',
-        name: 'Joseph Getaruelas',
+        name: 'Edmon Estopace',
+        role: 'Front-end Engineer'
+    },
+    {
+        id: '7',
+        photo: 'https://picsum.photos/536/354',
+        name: 'Carl Howell Galero',
         role: 'Back-end Engineer'
     },
+    {
+        id: '8',
+        photo: 'https://picsum.photos/536/354',
+        name: 'Jendan Nikolai Erguiza',
+        role: 'Front-end Engineer'
+    },
+    // {
+    //     photo: 'https://picsum.photos/536/354',
+    //     name: 'Joseph Getaruelas',
+    //     role: 'Back-end Engineer'
+    // },
+    // {
+    //     photo: 'https://picsum.photos/536/354',
+    //     name: 'Cherry Madi',
+    //     role: 'Quality-Assurance Engineer'
+    // },
+    // {
+    //     photo: 'https://picsum.photos/536/354',
+    //     name: 'Kristina Rae Fabian',
+    //     role: 'Founder & Product Manager'
+    // },
 ]

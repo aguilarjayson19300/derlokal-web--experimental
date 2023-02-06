@@ -164,7 +164,7 @@ const NavBar = ({ logo }: NavBarProps) => {
                   className="mb-4 sm:hidden sm:ml-auto sm:mb-0"
                   onClick={() => setIsNavOpen(false)}
                 >
-                  <Link href="/">
+                  <Link href="/contact-us">
                     <a
                       className={`inline-block ${
                         router.pathname === "/contact-us"

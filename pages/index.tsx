@@ -10,13 +10,15 @@ import { candidCollection, customerPromises, team } from "./data";
 
 const About = () => {
   const [showTeam, setShowTeam] = useState(false);
-  const [showCookieConsent, setShowCookieConsent] = useState(hasCookie("localConsent"));
+  const [showCookieConsent, setShowCookieConsent] = useState(
+    hasCookie("localConsent")
+  );
 
   const acceptCookie = () => {
     setShowCookieConsent(true);
     setCookie("localConsent", "true", {});
   };
-  
+
   return (
     <Layout>
       <section className="flex flex-col items-center px-6 py-16 mx-auto border-b sm:container sm:py-28 border-secondary4">
@@ -120,6 +122,30 @@ const About = () => {
         </div>
       </section>
 
+      {showTeam && (
+        <Modal onClose={() => setShowTeam(false)}>
+          <div className="flex flex-col items-center justify-center w-full px-6 sm:px-32">
+            <h2 className="text-2xl font-bold">
+              Our passionate & dedicated team
+            </h2>
+
+            <div className="grid w-full grid-cols-2 gap-8 mt-12 lg:grid-cols-3 justify-items-center sm:mt-16">
+              {team.map((member, i) => (
+                <div key={i}>
+                  <img
+                    src={member.photo}
+                    alt="me"
+                    className="object-cover mb-4 rounded-lg"
+                  />
+                  <div className="text-base font-bold">{member.name}</div>
+                  <div className="text-xs">{member.role}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Modal>
+      )}
+
       <section className="flex flex-col items-center px-6 py-16 mx-auto border-b sm:container sm:py-28 border-secondary4">
         <h1 className="text-3xl font-bold text-center sm:text-4xl">
           We aim higher
@@ -136,11 +162,12 @@ const About = () => {
           Meet the team
         </button>
         <div className="grid w-full grid-cols-2 gap-10 mt-12 lg:grid-cols-3 justify-items-center sm:mt-16">
-          {candidCollection.map((candid) => (
+          {candidCollection.map((candid, i) => (
             <img
+              key={i}
               src={candid}
               alt="me"
-              className="object-cover mb-4 rounded-lg sm:mb-6"
+              className="object-cover mb-4 rounded-lg sm:mb-6 w-"
             />
           ))}
         </div>
@@ -194,9 +221,9 @@ const About = () => {
               Our passionate & dedicated team
             </h2>
 
-            <div className="grid w-full grid-cols-2 gap-8 mt-12 lg:grid-cols-3 justify-items-center sm:mt-16">
-              {team.map((member, i) => (
-                <div key={i}>
+            <div className="grid w-full grid-cols-2 gap-8 mt-12 lg:grid-cols-3 justify-items-center sm:mt-12">
+              {team.map((member) => (
+                <div key={member.id}>
                   <img
                     src={member.photo}
                     alt="me"
@@ -219,7 +246,10 @@ const About = () => {
             </h1>
             <p className="text-xs">
               We use cookies to ensure you get the best experience on our
-              website. <Link href="/learn-more"><a className="text-primary">Learn more</a></Link>
+              website.{" "}
+              <Link href="/learn-more">
+                <a className="text-primary">Learn more</a>
+              </Link>
             </p>
             <div className="flex justify-end">
               <button

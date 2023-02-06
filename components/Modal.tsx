@@ -13,7 +13,7 @@ const Modal = ({ children, onClose }: ModalProps) => {
                     <rect x="1.3335" y="3.35645" width="2.86093" height="38.6225" rx="1.43046" transform="rotate(-45 1.3335 3.35645)" fill="#253454" />
                     <rect x="28.644" y="1.33325" width="2.86093" height="38.6225" rx="1.43046" transform="rotate(45 28.644 1.33325)" fill="#253454" />
                 </svg>
-                <div className="justify-center w-full h-full my-auto overflow-scroll py-28">
+                <div className="justify-center w-full h-full my-auto overflow-y-scroll py-28">
                     {children}
                 </div>
             </div>
