@@ -268,13 +268,13 @@ const NavBar = ({ logo }: NavBarProps) => {
           withCloseIcon={true}
           onClose={() => setGetTheApp(false)}
         >
-          <div className="flex flex-col items-center justify-center w-full gap-4 px-6 text-center sm:px-10">
+          <div className="flex flex-col items-center justify-center w-full gap-2 px-6 text-center sm:px-10">
             <h1 className="w-full text-3xl font-bold xl:text-4xl sm:text-2xl">
               Get Started with Der Lokal
             </h1>
             <form onSubmit={formik.handleSubmit}>
               <div className="flex flex-col items-center gap-4">
-                <p className="w-full text-sm">
+                <p className="w-full mb-5 text-sm">
                   We'll send you a message with a link to download the app.
                 </p>
                 <input
@@ -306,7 +306,7 @@ const NavBar = ({ logo }: NavBarProps) => {
 
       {getTheAppSuccess && (
         <GetTheAppModal withCloseIcon={false}>
-          <div className="flex flex-col items-center justify-center w-full gap-4 px-6 text-center sm:px-10">
+          <div className="flex flex-col items-center justify-center w-full gap-2 px-6 text-center sm:px-10">
             <svg
               width="80"
               height="80"
@@ -320,15 +320,15 @@ const NavBar = ({ logo }: NavBarProps) => {
                 fill="white"
               />
             </svg>
-            <h1 className="w-full text-3xl font-bold xl:text-4xl sm:text-2xl">
+            <h1 className="w-full text-3xl font-bold sm:text-2xl">
               Thanks for signing up!
             </h1>
             <div className="flex flex-col items-center gap-4">
-              <p className="w-full text-sm">
+              <p className="w-full mb-5 text-sm">
                 We have sent you a message with a link to download the app.
               </p>
               <button
-                className="w-auto px-10 py-2 font-bold rounded-full bg-primary text-textIcon7"
+                className="w-auto px-12 py-2 font-bold rounded-full bg-primary text-textIcon7"
                 onClick={() => handleCloseGetTheAppSuccess()}
               >
                 Done
