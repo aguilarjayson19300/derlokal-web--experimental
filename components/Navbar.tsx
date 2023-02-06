@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import * as yup from "yup";
+import { useFormik } from "formik";
 
 import GetTheAppModal from "./GetTheAppModal";
 
@@ -9,10 +11,14 @@ interface NavBarProps {
   logo?: any;
 }
 
+const emailValidationSchema = yup.object().shape({
+  email: yup.string().email().required()
+});
+
 const NavBar = ({ logo }: NavBarProps) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [getTheApp, setGetTheApp] = useState(false);
-  const [getTheAppSuccess, setGetTheAppSuccess] = useState(false)
+  const [getTheAppSuccess, setGetTheAppSuccess] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -31,9 +37,17 @@ const NavBar = ({ logo }: NavBarProps) => {
   const handleCloseGetTheAppSuccess = () => {
     setGetTheApp(false);
     setGetTheAppSuccess(false);
-  }
+  };
 
-  console.log("Pathname", router.pathname);
+  const formik = useFormik({
+    initialValues: {
+      email: ''
+    },
+    validationSchema: emailValidationSchema,
+    onSubmit: values => {
+      console.log(values);
+    }
+  });
 
   return (
     <>
@@ -250,53 +264,77 @@ const NavBar = ({ logo }: NavBarProps) => {
       </nav>
 
       {getTheApp && (
-        <GetTheAppModal withCloseIcon={true} onClose={() => setGetTheApp(false)}>
-            <div className='flex flex-col items-center justify-center w-full gap-4 px-6 text-center sm:px-10'>
-                <h1 className="w-full text-3xl font-bold xl:text-4xl sm:text-2xl">Get Started with Der Lokal</h1>
-                <div className='flex flex-col items-center gap-4'>
-                    <p className="w-full text-sm">We'll send you a message with a link to download the app.</p>
-                    <input className='w-full px-2 py-2 border border-primary focus:border-primary' placeholder='Enter your email or mobile number' />
-                    <button className='w-full px-10 py-2 font-bold rounded-full bg-primary text-textIcon7'
-                    onClick={() =>  setGetTheAppSuccess(true)}
-                    >
-                      Sign up for free
-                    </button>
-                </div>
-            </div>
+        <GetTheAppModal
+          withCloseIcon={true}
+          onClose={() => setGetTheApp(false)}
+        >
+          <div className="flex flex-col items-center justify-center w-full gap-4 px-6 text-center sm:px-10">
+            <h1 className="w-full text-3xl font-bold xl:text-4xl sm:text-2xl">
+              Get Started with Der Lokal
+            </h1>
+            <form onSubmit={formik.handleSubmit}>
+              <div className="flex flex-col items-center gap-4">
+                <p className="w-full text-sm">
+                  We'll send you a message with a link to download the app.
+                </p>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                  className="w-full px-2 py-2 border border-primary focus:border-primary"
+                  placeholder="Enter your email"
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <p className="justify-start text-xs text-danger">{formik.errors.email}</p>
+                ): null}
+                <button
+                  type="submit"
+                  disabled={!formik.isValid}
+                  className={`w-full px-10 py-2 font-bold rounded-full bg-primary text-textIcon7 ${!formik.isValid && 'cursor-not-allowed opacity-50'}`}
+                  onClick={() => setGetTheAppSuccess(true)}
+                >
+                  Sign up for free
+                </button>
+              </div>
+            </form>
+          </div>
         </GetTheAppModal>
       )}
 
       {getTheAppSuccess && (
         <GetTheAppModal withCloseIcon={false}>
-         <div className="flex flex-col items-center justify-center w-full gap-4 px-6 text-center sm:px-10">
-             <svg
-               width="80"
-               height="80"
-               viewBox="0 0 80 80"
-               fill="none"
-               xmlns="http:www.w3.org/2000/svg"
-             >
-               <circle cx="40" cy="40" r="36.6667" fill="#33B272" />
-               <path
-                 d="M34.4404 53.7501C33.9574 53.7509 33.48 53.6385 33.0412 53.4207C32.6025 53.2029 32.213 52.885 31.8997 52.4889L24.7584 43.4801C24.4736 43.1209 24.2573 42.7048 24.1218 42.2555C23.9863 41.8062 23.9343 41.3325 23.9687 40.8616C24.0031 40.3906 24.1233 39.9316 24.3224 39.5106C24.5215 39.0897 24.7956 38.7152 25.129 38.4084C25.4625 38.1016 25.8488 37.8686 26.2659 37.7226C26.6829 37.5766 27.1226 37.5206 27.5598 37.5576C27.997 37.5947 28.4231 37.7242 28.8138 37.9387C29.2045 38.1532 29.5522 38.4485 29.837 38.8077L34.8612 45.1457L52.8972 29.3395C53.5846 28.7419 54.4638 28.4621 55.3423 28.5614C56.2208 28.6606 57.027 29.1308 57.5844 29.8689C58.1419 30.6071 58.4051 31.5531 58.3165 32.4998C58.228 33.4466 57.7948 34.317 57.1118 34.9205L36.5475 52.9432C35.9526 53.466 35.2082 53.7511 34.4404 53.7501Z"
-                 fill="white"
-               />
-             </svg>
-             <h1 className="w-full text-3xl font-bold xl:text-4xl sm:text-2xl">
-               Thanks for signing up!
-             </h1>
-             <div className="flex flex-col items-center gap-4">
-               <p className="w-full text-sm">
-                 We have sent you a message with a link to download the app.
-               </p>
-               <button
-                 className="w-auto px-5 py-2 font-bold rounded-full bg-primary text-textIcon7"
-                 onClick={() => handleCloseGetTheAppSuccess()}
-               >
-                 Done
-               </button>
-             </div>
-           </div>
+          <div className="flex flex-col items-center justify-center w-full gap-4 px-6 text-center sm:px-10">
+            <svg
+              width="80"
+              height="80"
+              viewBox="0 0 80 80"
+              fill="none"
+              xmlns="http:www.w3.org/2000/svg"
+            >
+              <circle cx="40" cy="40" r="36.6667" fill="#33B272" />
+              <path
+                d="M34.4404 53.7501C33.9574 53.7509 33.48 53.6385 33.0412 53.4207C32.6025 53.2029 32.213 52.885 31.8997 52.4889L24.7584 43.4801C24.4736 43.1209 24.2573 42.7048 24.1218 42.2555C23.9863 41.8062 23.9343 41.3325 23.9687 40.8616C24.0031 40.3906 24.1233 39.9316 24.3224 39.5106C24.5215 39.0897 24.7956 38.7152 25.129 38.4084C25.4625 38.1016 25.8488 37.8686 26.2659 37.7226C26.6829 37.5766 27.1226 37.5206 27.5598 37.5576C27.997 37.5947 28.4231 37.7242 28.8138 37.9387C29.2045 38.1532 29.5522 38.4485 29.837 38.8077L34.8612 45.1457L52.8972 29.3395C53.5846 28.7419 54.4638 28.4621 55.3423 28.5614C56.2208 28.6606 57.027 29.1308 57.5844 29.8689C58.1419 30.6071 58.4051 31.5531 58.3165 32.4998C58.228 33.4466 57.7948 34.317 57.1118 34.9205L36.5475 52.9432C35.9526 53.466 35.2082 53.7511 34.4404 53.7501Z"
+                fill="white"
+              />
+            </svg>
+            <h1 className="w-full text-3xl font-bold xl:text-4xl sm:text-2xl">
+              Thanks for signing up!
+            </h1>
+            <div className="flex flex-col items-center gap-4">
+              <p className="w-full text-sm">
+                We have sent you a message with a link to download the app.
+              </p>
+              <button
+                className="w-auto px-10 py-2 font-bold rounded-full bg-primary text-textIcon7"
+                onClick={() => handleCloseGetTheAppSuccess()}
+              >
+                Done
+              </button>
+            </div>
+          </div>
         </GetTheAppModal>
       )}
     </>
