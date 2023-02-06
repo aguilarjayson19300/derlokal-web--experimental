@@ -49,10 +49,6 @@ const NavBar = ({ logo }: NavBarProps) => {
     }
   });
 
-  useEffect(() => {
-    formik.setTouched({ email: true });
-  }, []);
-
   return (
     <>
       <nav className="fixed top-0 z-20 flex flex-col w-full bg-white border sm:flex-row border-t-1 border-secondary6">
@@ -296,8 +292,8 @@ const NavBar = ({ logo }: NavBarProps) => {
                 ): null}
                 <button
                   type="submit"
-                  disabled={!formik.isValid}
-                  className={`w-full px-10 py-2 font-bold rounded-full bg-primary text-textIcon7 ${!formik.isValid && 'cursor-not-allowed opacity-50'}`}
+                  disabled={!(formik.isValid && formik.dirty)}
+                  className={`w-full px-10 py-2 font-bold rounded-full bg-primary text-textIcon7 ${!(formik.isValid && formik.dirty) && 'cursor-not-allowed opacity-50'}`}
                   onClick={() => setGetTheAppSuccess(true)}
                 >
                   Sign up for free
