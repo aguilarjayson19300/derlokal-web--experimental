@@ -14,15 +14,13 @@ const Seller = () => {
                         <p className='text-lg'>Discover local home-based sellers in your community.</p>
 
                         <div className='flex flex-col gap-4 items-center my-10 sm:flex-row '>
-                            <div className='relative sm:w-auto w-full'>
-                                <label className='absolute top-4 left-4'>+63</label>
-                                <input className='w-full border border-secondary4 py-4 pl-16 pr-8 focus:border-primary' placeholder='917 888 88 88' />
+                            <div className='relative w-2/6 w-full'>
+                                {/* <label className='absolute top-4 left-4'>+63</label> */}
+                                <input className='w-full border border-secondary4 py-4 pl-16 pr-8 focus:border-primary rounded-md' placeholder='Enter email or mobile number' />
                             </div>
 
-                            <button className='sm:w-auto w-full px-10 py-3 bg-primary text-textIcon7 rounded-full font-bold'>Sign up for free</button>
-
+                            <button className='sm:w-auto w-full px-8 py-4 bg-primary text-textIcon7 text-xs rounded-full font-semi-bold'>Sign up for FREE!</button>
                         </div>
-
                     </div>
                 </div>
             </section>

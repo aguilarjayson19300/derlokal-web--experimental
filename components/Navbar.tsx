@@ -59,7 +59,7 @@ const NavBar = ({ logo }: NavBarProps) => {
               href="/"
             >
               <img
-                width="198"
+                width="160"
                 height="35"
                 src="/logo.png"
                 alt="logo"
