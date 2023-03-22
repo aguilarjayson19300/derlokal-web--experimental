@@ -51,7 +51,7 @@ const NavBar = ({ logo }: NavBarProps) => {
 
   return (
     <>
-      <nav className="fixed top-0 z-20 flex flex-col w-full bg-white sm:flex-row border-t-1 border-secondary6 h-20 drop-shadow-md">
+      <nav className="fixed top-0 z-20 flex flex-col w-full bg-white sm:flex-row border-t-1 border-secondary6 md:h-20 md:drop-shadow-md">
         <div className="w-full sm:h-[88px] h-[64px] px-6 sm:container mx-auto flex items-center sm:border-b-0 border-b border-secondary7">
           <div className="flex justify-center mr-0 font-extrabold text-white border sm:hidden md:block md:justify-start border-1 sm:mr-20 bold pb-1">
             <a
@@ -111,14 +111,14 @@ const NavBar = ({ logo }: NavBarProps) => {
               </div>
               <ul className="flex flex-col items-center flex-1 text-xl font-black list-reset sm:flex-row sm:text-base text-textIcon sm:items-start">
                 <li
-                  className="mb-4 sm:mb-0 px-4 py-2"
+                  className="mb-4 sm:mb-0 md:px-4 md:py-2"
                   onClick={() => setIsNavOpen(false)}
                 >
                   <Link href="/seller">
                     <a
-                      className={`inline-block text-xs ${
+                      className={`inline-block md:text-[14px] ${
                         router.pathname === "/seller"
-                          ? "text-primary font-semibold border-b-[3px]"
+                          ? "text-primary font-bold md:font-semibold md:border-b-[3px]"
                           : "border-white font-medium"
                       } py-1 px-1`}
                     >
@@ -132,9 +132,9 @@ const NavBar = ({ logo }: NavBarProps) => {
                 >
                   <Link href="/consumer">
                     <a
-                      className={`inline-block text-xs ${
+                      className={`inline-block md:text-[14px] ${
                         router.pathname === "/consumer"
-                          ? "text-primary font-semibold border-b-[3px]"
+                          ? "text-primary font-bold md:font-semibold md:border-b-[3px]"
                           : "border-white font-medium"
                       } py-1 px-1`}
                     >
@@ -149,9 +149,9 @@ const NavBar = ({ logo }: NavBarProps) => {
                 >
                   <Link href="/">
                     <a
-                      className={`inline-block text-xs ${
+                      className={`inline-block md:text-[14px] ${
                         router.pathname === "/"
-                          ? "text-primary font-semibold border-b-[3px]"
+                          ? "text-primary font-bold md:font-semibold md:border-b-[3px]"
                           : "border-white font-medium"
                       } py-1 px-1`}
                     >
@@ -199,7 +199,7 @@ const NavBar = ({ logo }: NavBarProps) => {
                   onClick={() => setIsNavOpen(false)}
                 >
                   <button
-                    className="text-xs sm:w-[172px] w-full py-3 bg-primary text-textIcon7 rounded-full font-bold"
+                    className="text-[14px] sm:w-[172px] w-full py-3 bg-primary text-textIcon7 rounded-full font-bold"
                     onClick={() => setGetTheApp(true)}
                   >
                     Get the App

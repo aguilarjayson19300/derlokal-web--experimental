@@ -6,24 +6,23 @@ import { vendorPromises, derlokalHelps, faqs } from './data';
 const Seller = () => {
     return (
         <Layout>
-            <section className='bg-secondary7 px-6 overflow-hidden'>
-                <div className='sm:container mx-auto flex md:flex-row flex-col sm:pt-28 pt-12'>
+            <section className='bg-secondary7 px-16 overflow-hidden'>
+                <div className='sm:container mx-auto flex md:flex-row flex-col sm:pt-28 pt-12 md:pt-[105px]'>
                     <div className='sm:pr-20 flex-row sm:pb-28'>
-                        <h1 className='sm:text-4xl text-2xl font-bold mb-6'>Turn your passion into extra revenues with Der Lokal.</h1>
+                        <h1 className='font-sans sm:text-4xl text-xl font-bold mb-6'>Turn your passion into extra revenues with Der Lokal.</h1>
                         <p>Reach new customers and get more orders on your own terms and schedule.</p>
 
                         <div className='flex flex-col gap-4 items-center my-10 sm:flex-row '>
                             <div className='relative sm:w-auto w-full'>
-                                <label className='absolute top-4 left-4'>+63</label>
-                                <input className='w-full border border-secondary4 py-4 pl-16 pr-8 focus:border-primary' placeholder='917 888 88 88' />
+                                <input className='w-full md:w-[300px] border border-secondary4 py-4 pl-5 pr-8 focus:border-primary rounded-md' placeholder='Enter email or mobile number' />
                             </div>
 
-                            <button className='sm:w-auto w-full px-10 py-3 bg-primary text-textIcon7 rounded-full font-bold'>Sign up for free</button>
+                            <button className='sm:w-auto w-full px-10 py-4 bg-primary text-textIcon7 rounded-full drop-shadow-md'>Sign up for FREE!</button>
 
                         </div>
                     </div>
-                    <div className='lg:w-1/3 sm:w-full flex items-end justify-center'>
-                        <img src="/demo.png" alt="me" className=' object-fill object-center' />
+                    <div className='lg:w-1/2 sm:w-full flex items-end justify-center'>
+                        <img src="/demo.png" alt="me" className=' object-fill object-center'/>
                     </div>
                 </div>
             </section>

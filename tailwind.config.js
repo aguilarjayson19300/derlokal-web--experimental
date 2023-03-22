@@ -68,6 +68,7 @@ module.exports = {
       'textIcon7': '#FFFFFF',
     },
     fontFamily: {
+      'outfit': ['"Outfit"', '"sans-serif"'],
       'sans': ['"Noto Sans KR"', '"Noto Sans"']
     },
     extend: {
