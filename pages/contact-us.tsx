@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
+import 'animate.css'
 
 import Layout from '../components/Layout';
 import ErrorMessage from "../components/ErrorMessage";
@@ -34,8 +35,8 @@ const ContactUs = () => {
     return (
         <Layout>
             <section className='container mx-auto sm:py-28 py-20 sm:px-0 px-6 flex flex-col items-center justify-center'>
-                <h1 className='sm:text-3xl text-2xl font-bold mb-6 w-full sm:w-2/3 text-center'>We’re happy to answer any questions you may have, just send us a message.</h1>
-                <p className='text-lg'>Our team is there for you Monday to Friday between 10:00 AM to 6:00 PM.</p>
+                <h1 className='sm:text-3xl text-2xl font-bold mb-6 w-full sm:w-2/3 text-center animate__animated animate__fadeInDown'>We’re happy to answer any questions you may have, just send us a message.</h1>
+                <p className='text-lg animate__animated animate__fadeInUp'>Our team is there for you Monday to Friday between 10:00 AM to 6:00 PM.</p>
 
                 <form className="mt-16 pb-8 mb-4 lg:w-1/3 w-full mx-auto container relative py-30" onSubmit={handleSubmit(onSubmit)}>
 

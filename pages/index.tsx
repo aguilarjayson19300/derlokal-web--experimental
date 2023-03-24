@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { hasCookie, setCookie } from "cookies-next";
+import 'animate.css'
 
 import Layout from "../components/Layout";
 import Modal from "../components/Modal";
@@ -22,17 +23,17 @@ const About = () => {
   return (
     <Layout>
       <section className="flex flex-col items-center px-6 py-16 mx-auto border-b sm:container sm:py-28 border-secondary4">
-        <h1 className="text-3xl font-bold text-center sm:text-4xl">
+        <h1 className="text-3xl font-bold text-center sm:text-4xl animate__animated animate__fadeInDown">
           A platform to support our local economy.
         </h1>
-        <p className="mt-6 text-lg text-center sm:w-2/3">
+        <p className="mt-6 text-lg text-center sm:w-2/3 animate__animated animate__fadeInUp">
           We believe that everyone should have the opportunity to become
           self-employed, achieve financial success and enjoy fresh home-cooked
           food and products.
         </p>
 
         <div className="flex flex-col justify-between gap-10 sm:flex-row pt-14">
-          <div className="p-8 bg-secondary7 sm:p-14">
+          <div className="p-8 bg-secondary7 sm:p-14 rounded-md animate__animated animate__fadeInDown">
             <div className="flex">
               <svg
                 width="40"
@@ -64,7 +65,7 @@ const About = () => {
 
               <h4 className="mb-6 ml-6 text-xl font-bold">Vendors</h4>
             </div>
-            <p className="text-lg font-medium">
+            <p>
               Our partners create an amazing experience that customers come back
               for time and time again. As a key part of platform, our sellers
               drive and add creativity to our platforms. We work closely with
@@ -72,7 +73,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="p-8 bg-secondary7 sm:p-14">
+          <div className="p-8 bg-secondary7 sm:p-14 rounded-md animate__animated animate__fadeInUp">
             <div className="flex">
               <svg
                 width="40"
@@ -156,7 +157,7 @@ const About = () => {
           solutions and amazing experience to our sellers and consumers.
         </p>
         <button
-          className="px-8 py-3 mt-8 bg-white border rounded-full text-primary border-primary"
+          className="px-8 py-3 mt-8 bg-white border rounded-full text-primary border-primary hover:bg-primary hover:text-white"
           onClick={() => setShowTeam(true)}
         >
           Meet the team
@@ -173,12 +174,12 @@ const About = () => {
         </div>
       </section>
 
-      <section className="flex flex-col items-center px-6 py-16 mx-auto sm:container sm:py-28">
+      <section className="flex flex-col items-center px-6 py-10 md:py-16 mx-auto sm:container sm:py-28">
         <h1 className="text-2xl font-bold text-center sm:text-4xl">
           Our commitment to you
         </h1>
 
-        <div className="flex flex-col justify-between gap-20 sm:flex-row">
+        <div className="flex flex-col justify-between md:gap-20 sm:flex-row text-center">
           {customerPromises.map((promise) => (
             <div
               key={promise.title}
@@ -205,10 +206,10 @@ const About = () => {
         </p>
 
         <div className="flex flex-col justify-center w-full gap-2 mt-8 sm:flex-row">
-          <button className="px-8 py-3 bg-white rounded-full text-primary">
+          <button className="px-8 py-3 bg-white rounded-full text-primary hover:bg-success2 hover:text-white">
             I'm a Vendor
           </button>
-          <button className="px-8 py-3 bg-white rounded-full text-primary">
+          <button className="px-8 py-3 bg-white rounded-full text-primary hover:bg-success2 hover:text-white">
             I'm a Customer
           </button>
         </div>

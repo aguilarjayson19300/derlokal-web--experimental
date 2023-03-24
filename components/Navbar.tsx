@@ -51,12 +51,12 @@ const NavBar = ({ logo }: NavBarProps) => {
 
   return (
     <>
-      <nav className="fixed top-0 z-20 flex flex-col w-full bg-white border sm:flex-row border-t-1 border-secondary6">
-        <div className="w-full sm:h-[88px] h-[64px] px-6 sm:container mx-auto flex items-center sm:border-b-0 border-b border-secondary7">
-          <div className="flex justify-center mr-0 font-extrabold text-white border sm:hidden md:block md:justify-start border-1 sm:mr-20 bold">
+      <nav className="fixed top-0 z-20 flex flex-col w-full bg-white sm:flex-row border-t-1 border-secondary6 px-4 md:px-16 md:h-20 md:drop-shadow-md">
+        <div className="w-full sm:h-[88px] h-[64px] p-4 sm:p-0 sm:container mx-auto flex items-center sm:border-b-0 border-b border-secondary7">
+          <div className="flex justify-center mr-0 font-extrabold text-white border sm:hidden md:block md:justify-start border-1 md:mr-10 xl:mr-20 bold pb-1">
             <a
               className="text-white no-underline hover:text-white hover:no-underline"
-              href="/"
+              href="#"
             >
               <img
                 width="160"
@@ -111,32 +111,32 @@ const NavBar = ({ logo }: NavBarProps) => {
               </div>
               <ul className="flex flex-col items-center flex-1 text-xl font-black list-reset sm:flex-row sm:text-base text-textIcon sm:items-start">
                 <li
-                  className="mb-4 sm:mb-0"
+                  className="mb-4 sm:mb-0 md:px-4 md:py-2"
                   onClick={() => setIsNavOpen(false)}
                 >
                   <Link href="/seller">
                     <a
-                      className={`inline-block ${
+                      className={`inline-block md:text-[14px] ${
                         router.pathname === "/seller"
-                          ? "text-primary font-bold "
+                          ? "text-primary font-bold md:font-semibold md:border-b-[3px] animate__animated animate__fadeIn"
                           : "border-white font-medium"
-                      } py-2 px-4`}
+                      } py-1 px-1`}
                     >
-                      Seller
+                      Vendor
                     </a>
                   </Link>
                 </li>
                 <li
-                  className="mb-4 sm:mb-0"
+                  className="mb-4 sm:mb-0 py-2"
                   onClick={() => setIsNavOpen(false)}
                 >
                   <Link href="/consumer">
                     <a
-                      className={`inline-block ${
+                      className={`inline-block md:text-[14px] ${
                         router.pathname === "/consumer"
-                          ? "text-primary font-bold "
+                          ? "text-primary font-bold md:font-semibold md:border-b-[3px] animate__animated animate__fadeIn"
                           : "border-white font-medium"
-                      } py-2 px-4`}
+                      } py-1 px-1`}
                     >
                       Consumer
                     </a>
@@ -144,16 +144,16 @@ const NavBar = ({ logo }: NavBarProps) => {
                 </li>
 
                 <li
-                  className="mb-4 sm:ml-auto sm:mb-0"
+                  className="mb-4 sm:ml-auto sm:mb-0 py-2"
                   onClick={() => setIsNavOpen(false)}
                 >
                   <Link href="/">
                     <a
-                      className={`inline-block ${
+                      className={`inline-block md:text-[14px] ${
                         router.pathname === "/"
-                          ? "text-primary font-bold "
+                          ? "text-primary font-bold md:font-semibold md:border-b-[3px] animate__animated animate__fadeIn"
                           : "border-white font-medium"
-                      } py-2 px-4`}
+                      } py-1 px-1`}
                     >
                       About us
                     </a>
@@ -199,7 +199,7 @@ const NavBar = ({ logo }: NavBarProps) => {
                   onClick={() => setIsNavOpen(false)}
                 >
                   <button
-                    className="text-sm sm:w-[172px] w-full py-3 bg-primary text-textIcon7 rounded-full font-bold"
+                    className="text-[14px] sm:w-[172px] w-full py-3 bg-primary text-textIcon7 rounded-full font-bold hover:bg-success2 hover:text-white"
                     onClick={() => setGetTheApp(true)}
                   >
                     Get the App
@@ -284,7 +284,7 @@ const NavBar = ({ logo }: NavBarProps) => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
-                  className="w-full px-2 py-2 border border-primary focus:border-primary"
+                  className="w-full px-2 py-4 border border-primary focus:border-primary rounded-md"
                   placeholder="Enter your email"
                 />
                 {formik.touched.email && formik.errors.email ? (
@@ -293,7 +293,7 @@ const NavBar = ({ logo }: NavBarProps) => {
                 <button
                   type="submit"
                   disabled={!(formik.isValid && formik.dirty)}
-                  className={`w-full px-10 py-2 font-bold rounded-full bg-primary text-textIcon7 ${!(formik.isValid && formik.dirty) && 'cursor-not-allowed opacity-50'}`}
+                  className={`w-full px-10 py-4 font-semibold rounded-full bg-primary text-textIcon7 ${!(formik.isValid && formik.dirty) && 'cursor-not-allowed opacity-50'}`}
                   onClick={() => setGetTheAppSuccess(true)}
                 >
                   Sign up for free
