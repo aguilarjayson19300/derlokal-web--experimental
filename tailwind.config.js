@@ -3,6 +3,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
     colors: {
       'white': '#FFFFFF',
@@ -68,8 +69,8 @@ module.exports = {
       'textIcon7': '#FFFFFF',
     },
     fontFamily: {
-      'sans': ['"Noto Sans KR"', '"Noto Sans"']
-    },
+      'Outfit': ['Outfit', 'sans-serif']
+    }, 
     extend: {
       fontSize: {
         '2xs': ['11px', {
@@ -96,6 +97,15 @@ module.exports = {
         '4xl': ['48px', {
           'line-height': '70px'
         }]
+      },
+      keyframes: {
+          wiggle:{
+            '0%, 100%': { transfrom: 'rotate(-15deg)' },
+            '50%': { transform:'rotate(15deg)' }
+          }
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite'
       }
     }
   },
